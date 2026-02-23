@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reedsblog/widgets/management_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,12 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const Center(
-      child: Text(
-        "Management (Posts List goes here)",
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
+    const Center(child: ManagementScreen()),
     const Center(
       child: Text(
         "Reads (Public Feed goes here)",
