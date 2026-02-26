@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reedsblog/screens/profile_screen.dart';
 import 'package:reedsblog/widgets/management_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -15,21 +16,10 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = [
     const Center(child: ManagementScreen()),
-    const Center(
-      child: Text(
-        "Reads (Public Feed goes here)",
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
-    const Center(
-      child: Text(
-        "Profile (About Me goes here)",
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
+    const Center(child: ProfileScreen()),
   ];
 
-  final List<String> _titles = ["Manage Posts", "Reeds", "Profile"];
+  final List<String> _titles = ["Manage Posts", "Profile"];
 
   @override
   Widget build(BuildContext context) {
@@ -73,13 +63,6 @@ class _MainScreenState extends State<MainScreen> {
               child: Icon(Icons.edit_document),
             ),
             label: "Manage",
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Icon(Icons.library_books_rounded),
-            ),
-            label: "Reeds",
           ),
           BottomNavigationBarItem(
             icon: Padding(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-import 'package:reedsblog/screens/editor_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reedsblog/screens/createpost_screen.dart';
+import 'package:reedsblog/screens/editor_screen.dart';
 
 class ManagementScreen extends StatelessWidget {
   const ManagementScreen({super.key});
@@ -135,6 +136,19 @@ class ManagementScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => EditorScreen(
+                              docId: post.id,
+                              currentTitle: title,
+                              currentContent: content,
+                            ),
+                      ),
+                    );
+                  },
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 12,
@@ -202,7 +216,10 @@ class ManagementScreen extends StatelessWidget {
         foregroundColor: Colors.white,
         elevation: 4,
         onPressed: () {
-          print("Opening the Editor to write a new post!");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const CreatePostScreen()),
+          );
         },
         child: Icon(Icons.add),
         shape: CircleBorder(),
